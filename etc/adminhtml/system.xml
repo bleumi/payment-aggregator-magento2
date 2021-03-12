@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="bleumimethod" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[<div class="bleumi-logo-src"></div><div class="bleumi quick_line_text">Accept Traditional and Digital Currency Payments</div>]]></label>
+                <fieldset_css>bleumi payment_settings</fieldset_css>
+                <frontend_model>Bleumi\PaymentAggregator\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+
+                <group id="configuration_details" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="4">
+                    <comment></comment>
+                    <frontend_model>Bleumi\PaymentAggregator\Block\Adminhtml\System\Config\Fieldset\Hint</frontend_model>
+                </group>
+
+                <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Settings</label>
+                    <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enable Bleumi</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/bleumimethod/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <config_path>payment/bleumimethod/title</config_path>
+                    </field>
+                    <field id="payment_options" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Payment Options</label>
+                        <config_path>payment/bleumimethod/payment_options</config_path>
+                    </field>
+                    <field id="api_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>API KEY</label>
+                        <config_path>payment/bleumimethod/api_key</config_path>
+                        <comment>
+                            <![CDATA[<span>You can view and manage your Bleumi API keys from the <a href="http://account.bleumi.com/account/?app=paymentlink&tab=integration" target="_blank">Bleumi Portal</a></span>]]></comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

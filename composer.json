@@ -1,0 +1,39 @@
+{
+  "name": "bleumi/payment-aggregator-magento2",
+  "type": "magento2-module",
+  "description": "Accept Traditional and Digital Currency Payments",
+  "version": "1.0.0",
+  "keywords": [
+    "bleumi",
+    "cryptocurrency",
+    "digital currency",
+    "payments",
+    "stablecoin",
+    "algorand",
+    "ethereum",
+    "rsk",
+    "rootstock",
+    "celo"
+  ],
+  "homepage": "https://bleumi.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bleumi",
+      "email": "support@bleumi.com",
+      "homepage": "https://bleumi.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+	"php": "~7.1.3||~7.2.0||~7.3.0||~7.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bleumi\\PaymentAggregator\\": ""
+    },
+    "files": [
+        "registration.php"
+    ]
+  }
+}

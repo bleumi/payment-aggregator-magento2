@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <bleumimethod>
+                <model>Bleumi\PaymentAggregator\Model\BleumiMethod</model>
+                <title>Pay with Traditional or Digital Currency</title>
+                <payment_options>PayPal, Credit/Debit Card, Algorand, USD Coin, Celo, Celo Dollar, R-BTC, Dollar on Chain</payment_options>
+                <active>0</active>
+                <order_status>pending_payment</order_status>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </bleumimethod>
+            <!-- payment-config -->
+        </payment>
+    </default>
+</config>

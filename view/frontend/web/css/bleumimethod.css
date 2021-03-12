@@ -1,0 +1,22 @@
+.bleumi.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.bleumi-logo {
+    height: 19px !important
+}
+
+.bleumi.payment-method-redirect-message {
+    background-color: #fafafa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bleumi.payment-method-redirect-message p {
+    margin-bottom: 0;
+}
