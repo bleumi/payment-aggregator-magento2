@@ -67,6 +67,13 @@ class OrderProcessing
                 } else {
                     if ($amt_due > 0) {
                         if ($response['record']['amt_due'] === $response['record']['total']) {
+                            $this->logger->info(filter_input(INPUT_GET, 'user_force'));
+                            if (filter_input(INPUT_GET, 'user_force') === 'yes') {
+                                $this->logger->info('user marked as paid');
+                                $order->addStatusHistoryComment('User marked as paid, payment not verified by Bleumi')->save();
+                                return;
+                            }
+
                             return 'no-payment';
                         } else {
     						$order->setState("partial_payment", true)->save();
@@ -82,7 +89,7 @@ class OrderProcessing
                 }
             }
         } catch (\Throwable $th) {
-            $this->logger->critical('Bleumi payment validation failed ' . filter_input(INPUT_GET, 'order_id'), ["exception" => $th]);
+            $this->logger->critical('Bleumi payment validation failed ' . $order_id . ' order_id', ["exception" => $th]);
         }
         
         return 'done';

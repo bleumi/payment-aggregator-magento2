@@ -83,8 +83,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 "currency" => $order->getOrderCurrencyCode(),
                 "invoice_date" => intval(date("Ymd")),
                 "metadata" => array (
-                    "no_invoice" => true,
-                    "no_emails" => true
+                    "no_invoice" => true
                 ),
 				"success_url" => $this->_url->getUrl("bleumi/end/redirect", ['_query' => ["order_id" => $order->getId()]]),
 				"cancel_url" => $this->_url->getUrl("bleumi/end/cancel"),
@@ -120,8 +119,14 @@ class Index extends \Magento\Framework\App\Action\Action
             $response = json_decode($body, true);
 
             if (!empty($response['payment_url'])) {
-                $order->setState(Order::STATE_PENDING_PAYMENT, true)->save();
-                $order->setStatus(Order::STATE_PENDING_PAYMENT, true)->save();
+                $order->setState(Order::STATE_PENDING_PAYMENT, true);
+                $order->setStatus(Order::STATE_PENDING_PAYMENT, true);
+
+
+                $order->addStatusHistoryComment('Bleumi Payment URL: ' . $response['payment_url']);
+
+
+                $order->save();
 
                 $result = $this->resultJsonFactory->create();
                 return $result->setData(['redirectUrl' => $response['payment_url']]);

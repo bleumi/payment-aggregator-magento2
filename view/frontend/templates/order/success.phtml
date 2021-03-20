@@ -4,6 +4,9 @@
 
 <div class="checkout-success">
 	<?php if ($block->getOrderId()) : ?>
+		<?php if ($order['state'] === 'pending_payment') : ?>
+			<p><?= $block->escapeHtml(__('Your order will be processed once your payment has been confirmed')) ?></p>
+		<?php endif; ?>
 		<?php if ($block->getCanViewOrder()) : ?>
 			<p><?= $block->escapeHtml(__('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeUrl($block->getViewOrderUrl()), $block->getOrderId())), ['a', 'strong']) ?></p>
 		<?php else : ?>
