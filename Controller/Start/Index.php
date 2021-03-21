@@ -123,7 +123,18 @@ class Index extends \Magento\Framework\App\Action\Action
                 $order->setStatus(Order::STATE_PENDING_PAYMENT, true);
 
 
-                $order->addStatusHistoryComment('Bleumi Payment URL: ' . $response['payment_url']);
+                $url_parts = parse_url($response['payment_url']);
+
+                $params = array();
+                parse_str($url_parts['query'], $params);
+                $params['no_redirect'] = 'yes';
+                $url_parts['query'] = http_build_query($params);
+
+
+                $url = $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . $url_parts['query'];
+
+
+                $order->addStatusHistoryComment('Bleumi Payment URL: ' . $url);
 
 
                 $order->save();
