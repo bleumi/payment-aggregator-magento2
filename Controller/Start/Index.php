@@ -78,16 +78,16 @@ class Index extends \Magento\Framework\App\Action\Action
 
             $billing = $order->getBillingAddress();
 
-			$params = array(
+            $params = array(
                 "id" => $order->getId(),
                 "currency" => $order->getOrderCurrencyCode(),
                 "invoice_date" => intval(date("Ymd")),
                 "metadata" => array (
                     "no_invoice" => true
                 ),
-				"success_url" => $this->_url->getUrl("bleumi/end/redirect", ['_query' => ["order_id" => $order->getId()]]),
-				"cancel_url" => $this->_url->getUrl("bleumi/end/cancel"),
-				"notify_url" => $this->getBaseUrl() . 'rest/V1/bleumi/webhook',
+                "success_url" => $this->_url->getUrl("bleumi/end/redirect", ['_query' => ["order_id" => $order->getId()]]),
+                "cancel_url" => $this->_url->getUrl("bleumi/end/cancel"),
+                "notify_url" => $this->getBaseUrl() . 'rest/V1/bleumi/webhook',
                 "record" => array (
                     "client_info" => array (
                         "type" => "individual",
@@ -101,13 +101,13 @@ class Index extends \Magento\Framework\App\Action\Action
                         "rate" => $order->getGrandTotal()
                     ))
                 )
-			);
+            );
 
             if (!empty($billing->getCountryId())) {
                 $params["record"]["client_info"]["country"] = $billing->getCountryId();
             }
 
-			$this->logger->info(json_encode($params));
+            $this->logger->info(json_encode($params));
 
             $this->curl->addHeader("Content-Type", "application/json");
             $this->curl->addHeader("X-Api-Key", $this->apiKey);
@@ -146,10 +146,10 @@ class Index extends \Magento\Framework\App\Action\Action
             $this->logger->critical('Bleumi POST', ["exception" => $th]);
         }
         
-		$order->registerCancellation('Canceled due to errors')->save();
-		
-		$this->checkoutSession->restoreQuote();
-		
-		throw new LocalizedException(__('Something went wrong while receiving API Response'));
+        $order->registerCancellation('Canceled due to errors')->save();
+        
+        $this->checkoutSession->restoreQuote();
+        
+        throw new LocalizedException(__('Something went wrong while receiving API Response'));
     }
 }

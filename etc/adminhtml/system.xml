@@ -27,6 +27,11 @@
                         <label>Payment Options</label>
                         <config_path>payment/bleumimethod/payment_options</config_path>
                     </field>
+                    <field id="next_status" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Order Status after Payment Confirmation</label>
+                        <source_model>Bleumi\PaymentAggregator\Model\OrderStatus</source_model>
+                        <config_path>payment/bleumimethod/next_status</config_path>
+                    </field>
                     <field id="api_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>API KEY</label>
                         <config_path>payment/bleumimethod/api_key</config_path>

@@ -62,8 +62,8 @@ class OrderProcessing
                 $amt_recv_pending = floatval($response['record']['amt_recv_online_pending']);
 
                 if ($amt_recv_pending > 0) {
-						$order->setState("awaiting_confirmation", true)->save();
-						$order->setStatus("awaiting_confirmation", true)->save();
+                        $order->setState("awaiting_confirmation", true)->save();
+                        $order->setStatus("awaiting_confirmation", true)->save();
                 } else {
                     if ($amt_due > 0) {
                         if ($response['record']['amt_due'] === $response['record']['total']) {
@@ -76,15 +76,22 @@ class OrderProcessing
 
                             return 'no-payment';
                         } else {
-    						$order->setState("partial_payment", true)->save();
-    						$order->setStatus("partial_payment", true)->save();
+                            $order->setState("partial_payment", true)->save();
+                            $order->setStatus("partial_payment", true)->save();
                         }
                     } elseif ($amt_due < 0) {
                         $order->setState("over_payment", true)->save();
-    					$order->setStatus("over_payment", true)->save();
+                        $order->setStatus("over_payment", true)->save();
                     } else {
-						$order->setState(Order::STATE_PROCESSING, true)->save();
-						$order->setStatus(Order::STATE_PROCESSING, true)->save();
+                        $next_status = $this->scopeConfig->getValue('payment/bleumimethod/next_status', ScopeInterface::SCOPE_STORE);
+
+                        if (isset($next_status)) {
+                            $order->setState($next_status, true)->save();
+                            $order->setStatus($next_status, true)->save();
+                        } else {
+                            $order->setState(Order::STATE_PROCESSING, true)->save();
+                            $order->setStatus(Order::STATE_PROCESSING, true)->save();
+                        }
                     }
                 }
             }

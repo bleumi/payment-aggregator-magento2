@@ -7,7 +7,7 @@
                 <title>Pay with Traditional or Digital Currency</title>
                 <payment_options>PayPal, Credit/Debit Card, Algorand, USD Coin, Celo, Celo Dollar, R-BTC, Dollar on Chain</payment_options>
                 <active>0</active>
-                <order_status>pending_payment</order_status>
+                <next_status>processing</next_status>
                 <allowspecific>0</allowspecific>
                 <group>offline</group>
             </bleumimethod>
