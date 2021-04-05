@@ -59,8 +59,7 @@ class Redirect extends \Magento\Framework\App\Action\Action
             $response = $this->orderProc->updateOrder($order_id);
             
             if($response === 'no-payment') {
-                $this->_redirect('checkout/cart');
-                return
+                return $this->_redirect('checkout/cart');
             }
         }
 
