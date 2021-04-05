@@ -39,8 +39,15 @@ class Webhook
             $this->logger->info($body);
             
             $request = json_decode($body, true);
+            if (!isset($request) || !isset($request['id'])) {
+                return $this->logger->critical('order_id missing', []);
+            }
             
             $order_id = intval($request['id']);
+            if (empty($order_id)) {
+                return $this->logger->critical('order_id missing', []);
+            }
+
             $this->orderProc->updateOrder($order_id);
         } catch (\Throwable $th) {
             $this->logger->critical('Bleumi payment validation failed ' . filter_input(INPUT_GET, 'order_id'), ["exception" => $th]);
