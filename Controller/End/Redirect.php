@@ -54,12 +54,16 @@ class Redirect extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $order_id = $this->_getCheckout()->getLastRealOrderId();
-        $response = $this->orderProc->updateOrder($order_id);
-        
-        if($response === 'no-payment') {
-            $this->_redirect('checkout/cart');
-        } else {
-            $this->_redirect('checkout/onepage/success', ['_secure' => true]);
+
+        if (!empty($order_id)) {
+            $response = $this->orderProc->updateOrder($order_id);
+            
+            if($response === 'no-payment') {
+                $this->_redirect('checkout/cart');
+                return
+            }
         }
+
+        $this->_redirect('checkout/onepage/success', ['_secure' => true]);
     }
 }
