@@ -47,6 +47,10 @@ class OrderProcessing
     public function updateOrder($order_id)
     {
         $order = $this->orderFactory->create()->loadByIncrementId($order_id);
+        if (!$order->getId()) {
+            $this->logger->info('Missing order: ' . $order_id);
+            return 'no-order';
+        }
         
         try {
             $this->curl->addHeader("Content-Type", "application/json");
