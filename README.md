@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/bleumi/payment-aggregator-magento2/master/LICENSE)
 
-[Bleumi](https://bleumi.com) is an all-in-one global Payment Orchestration Platform. With this extension, customers can accept Traditional (PayPal, Credit/Debit Card) or Digital Currency (USD Coin, Tether, Monerium) payments in your Magento 2 Store.
+[Bleumi](https://bleumi.com) is an all-in-one global Payment Orchestration Platform. With this extension, customers can accept Traditional (PayPal, Credit/Debit Card) or Crypto Currency (USD Coin, Tether, Monerium) payments in your Magento 2 Store.
 
 ## Installation
 

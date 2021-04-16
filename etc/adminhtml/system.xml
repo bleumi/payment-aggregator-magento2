@@ -3,7 +3,7 @@
     <system>
         <section id="payment">
             <group id="bleumimethod" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label><![CDATA[<div class="bleumi-logo-src"></div><div class="bleumi quick_line_text">Accept Traditional and Digital Currency Payments</div>]]></label>
+                <label><![CDATA[<div class="bleumi-logo-src"></div><div class="bleumi quick_line_text">Accept Traditional and Crypto Currency Payments</div>]]></label>
                 <fieldset_css>bleumi payment_settings</fieldset_css>
                 <frontend_model>Bleumi\PaymentAggregator\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
 

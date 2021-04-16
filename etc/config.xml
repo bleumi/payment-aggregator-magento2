@@ -4,7 +4,7 @@
         <payment>
             <bleumimethod>
                 <model>Bleumi\PaymentAggregator\Model\BleumiMethod</model>
-                <title>Pay with Traditional or Digital Currency</title>
+                <title>Pay with Traditional or Crypto Currency</title>
                 <payment_options>PayPal, Credit/Debit Card, Algorand, USD Coin, Celo, Celo Dollar, R-BTC, Dollar on Chain</payment_options>
                 <active>0</active>
                 <next_status>processing</next_status>

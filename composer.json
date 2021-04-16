@@ -1,12 +1,12 @@
 {
   "name": "bleumi/payment-aggregator-magento2",
   "type": "magento2-module",
-  "description": "Accept Traditional and Digital Currency Payments",
-  "version": "1.0.4",
+  "description": "Accept Traditional and Crypto Currency Payments",
+  "version": "1.0.5",
   "keywords": [
     "bleumi",
     "cryptocurrency",
-    "digital currency",
+    "crypto currency",
     "payments",
     "stablecoin",
     "algorand",
