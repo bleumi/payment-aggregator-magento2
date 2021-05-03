@@ -1,4 +1,4 @@
-# Bleumi for Magento 2
+# Bleumi Payments for Magento 2
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/bleumi/payment-aggregator-magento2/master/LICENSE)
 
