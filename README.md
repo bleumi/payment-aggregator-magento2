@@ -33,6 +33,8 @@ Run the following commands in the root folder of your Magento installation,
 * bin/magento setup:di:compile
 * bin/magento setup:static-content:deploy
 
+Please refer to the [Installation Guide](https://github.com/bleumi/payment-aggregator-magento2/raw/main/Bleumi%20Payments%20-%20Installation%20Guide%20for%20Magento.pdf) for complete details.
+
 **Step 3: Configure Bleumi Extension in Your Magento 2 Store**
 
 * Customize the Title & Payment Options field. These are shown to the buyer at the Checkout screen
