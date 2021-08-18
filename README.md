@@ -16,6 +16,8 @@ If you want to know if Bleumi supports your system or if you face any integratio
 
 ### Overview
 
+Please refer to the [Installation Guide](https://github.com/bleumi/payment-aggregator-magento2/raw/main/Bleumi%20Payments%20-%20Installation%20Guide%20for%20Magento.pdf) for complete details.
+
 **Step 1: Configure your Bleumi Account:**
 
 * Add gateway accounts in the [Bleumi Portal](https://account.bleumi.com/account/?app=paymentlink&tab=gateway)
@@ -32,8 +34,6 @@ Run the following commands in the root folder of your Magento installation,
 * bin/magento cache:flush
 * bin/magento setup:di:compile
 * bin/magento setup:static-content:deploy
-
-Please refer to the [Installation Guide](https://github.com/bleumi/payment-aggregator-magento2/raw/main/Bleumi%20Payments%20-%20Installation%20Guide%20for%20Magento.pdf) for complete details.
 
 **Step 3: Configure Bleumi Extension in Your Magento 2 Store**
 
